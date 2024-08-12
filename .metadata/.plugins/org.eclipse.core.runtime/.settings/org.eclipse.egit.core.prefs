@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=I\:\\spring_tutorial\\.git;I\:\\com.pokemonreview.api.models\\.git;I\:\\com.pokemonreview.api\\.git;
-GitRepositoriesView.GitDirectories.relative=I\:\\spring_tutorial\\.git;I\:\\com.pokemonreview.api.models\\.git;I\:\\com.pokemonreview.api\\.git;
+GitRepositoriesView.GitDirectories=I\:\\spring_tutorial\\.git;I\:\\Eclipse_inv\\.git;I\:\\com.pokemonreview.api.models\\.git;I\:\\com.pokemonreview.api\\.git;
+GitRepositoriesView.GitDirectories.relative=I\:\\spring_tutorial\\.git;.git;I\:\\com.pokemonreview.api.models\\.git;I\:\\com.pokemonreview.api\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
