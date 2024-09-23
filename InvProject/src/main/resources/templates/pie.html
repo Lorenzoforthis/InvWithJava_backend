@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/mycolor.css" />
+  <link rel="stylesheet" href="css/animate.min.css" />
+  <style>
+    .container {
+      height: 600px;
+    }
+
+    .highcharts-figure,
+    .highcharts-data-table table {
+      min-width: 320px;
+      max-width: 800px;
+      margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+      font-family: Verdana, sans-serif;
+      border-collapse: collapse;
+      border: 1px solid #ebebeb;
+      margin: 10px auto;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .highcharts-data-table caption {
+      padding: 1em 0;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .highcharts-data-table th {
+      font-weight: 600;
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table td,
+    .highcharts-data-table th,
+    .highcharts-data-table caption {
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr,
+    .highcharts-data-table tr:nth-child(even) {
+      background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+      background: #f1f7ff;
+    }
+
+    .ld-label {
+      width: 200px;
+      display: inline-block;
+    }
+
+    .ld-url-input {
+      width: 500px;
+    }
+
+    .ld-time-input {
+      width: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="nav" class="bg-white">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/static/index.html"><i class="fa-solid fa-chart-line"></i>Winner</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/static/index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">市場情報</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                付費解鎖
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item disabled" id="s02_btn01" href="0820-member-control-panel.html"
+                    target="_blank">會員管理</a>
+                </li>
+                <li>
+                  <a class="dropdown-item disabled" id="s02_btn02" ref="0820-member-control-panel.html">VVIP專用</a>
+                </li>
+                <li>
+                  <a class="dropdown-item disabled" id="s02_btn03" href="#">VVVIP專用</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <span class="h4 fw-300 d-none" id="s02_login_username">會員<span class="fw-300"
+                id="s02_login_username">xxx</span></span>
+            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#loginModal" id="s02_login_btn">
+              登入
+            </button>
+            <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#registerModal"
+              id="s02_register_btn">
+              註冊
+            </button>
+            <button class="btn btn-danger d-none" id="s02_logout_btn">
+              登出
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- loginModal -->
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="username" class="form-label">帳號</label>
+              <input type="text" name="loginModal_username" id="loginModal_username" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">密碼</label>
+              <input type="password" name="loginModal_password" id="loginModal_password" class="form-control" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary" id="loginModal_ok_btn">
+              確定
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- registerModal -->
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6">
+                <h3>會員守則</h3>
+                <p>
+                  1.嚴格保護個人信息和交易數據，不得將其他會員的私密信息或網站內部信息洩露給第三方。。
+                </p>
+                <p>
+                  2.所有交易應公開透明，會員不得進行任何形式的市場操控或內幕交易。
+                </p>
+                <p>
+                  3.尊重並遵守網站及第三方內容的知識產權，不抄襲、盜用或未經許可使用他人內容。
+                </p>
+                <p>
+                  4.遵循道德準則，避免任何損害網站聲譽或對其他會員造成困擾的行為，如濫用網站功能或發送垃圾信息。
+                </p>
+                <div class="form-check">
+                  <input type="checkbox" name="registerModal_chk" id="registerModal_chk"
+                    class="form-check-input is-invalid" />
+                  <label for="registerModal_chk" class="form-check-label">同意</label>
+                  <div class="valid-feedback">同意遵守規定</div>
+                  <div class="invalid-feedback">不同意遵守規定</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="registerModal_username" class="form-label">帳號</label>
+                  <input type="text" name="registerModal_username" id="registerModal_username"
+                    class="form-control is-invalid" placeholder="字數3-8" />
+                  <div class="valid-feedback">符合規定</div>
+                  <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <div class="mb-3">
+                  <label for="registerModal_password" class="form-label">密碼</label>
+                  <input type="password" name="registerModal_password" id="registerModal_password"
+                    class="form-control is-invalid" placeholder="字數3-8" />
+                  <div class="valid-feedback">符合規定</div>
+                  <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <div class="mb-3">
+                  <label for="registerModal_re_password" class="form-label">確認密碼</label>
+                  <input type="password" name="registerModal_re_password" id="registerModal_re_password"
+                    class="form-control is-invalid" placeholder="確認密碼" />
+                  <div class="valid-feedback">符合規定</div>
+                  <div class="invalid-feedback">不符合規定</div>
+                </div>
+                <div class="mb-3">
+                  <label for="registerModal_email" class="form-label">email</label>
+                  <input type="email" name="registerModal_email" id="registerModal_email"
+                    class="form-control is-invalid" placeholder="字數3-15" />
+                  <div class="valid-feedback">符合規定</div>
+                  <div class="invalid-feedback">不符合規定</div>
+                  =======
+                  <section id="nav">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                      <div class="container-fluid">
+                        <a class="navbar-brand" href="/index.html">首頁</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                          aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            <li class="nav-item">
+                              <a class="nav-link" href="/views/market_gel.html">大盤</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/views/holders.html">籌碼部位</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/views/gold_price.html">黃金</a>
+                            </li>
+                          </ul>
+                          <button type="button" class="btn" data-bs-toggle="modal"
+                            data-bs-target="loginModal">登入</button>
+                          <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="registerModal">註冊</button>
+                        </div>
+                      </div>
+                    </nav>
+                    <div class="modal" tabindex="-1">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        取消
+                      </button>
+                      <button type="button" class="btn btn-primary" id="registerModal_ok_btn">
+                        確認
+                      </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+  </section>
+
+  <figure class="highcharts-figure">
+    <div class="container" id="piechart"></div>
+    <p>
+      <單位:千元>	  
+    </p>
+  </figure>
+  <h1 th:text="#{Elts.chartName}"></h1>
+
+  <script src="/js/accessibilty.js"></script>
+  <script src="/js/piechart.js"></script>
+  <script src="/js/pieChartMore.js"></script>
+  <script src="/js/export_data.js"></script>
+  <script src="/js/exporting.js"></script>
+
+
+
+  <script>
+    Highcharts.chart('piechart', {
+      colors: ['#C0C0C0', '#FFD700', '#CD7F32'],
+      chart: {
+        type: 'column',
+        inverted: true,
+        polar: true
+      },
+      title: {
+        text: '上市公司本期營業利益',
+        align: 'left'
+      },
+      subtitle: {
+        text: '水泥工業',
+        align: 'left'
+      },
+      tooltip: {
+        outside: true
+      },
+      pane: {
+        size: '85%',
+        innerSize: '20%',
+        endAngle: 270
+      },
+      xAxis: {
+        tickInterval: 1,
+        labels: {
+          align: 'right',
+          useHTML: true,
+          allowOverlap: true,
+          step: 1,
+          y: 3,
+          style: {
+            fontSize: '13px'
+          }
+        },
+        lineWidth: 0,
+        gridLineWidth: 0,
+        categories: [  //CompanyName
+           '<span class="f16" th:text:"${Elements.companyName[0]}"><span id="flag" class="flag no">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[1]}"><span id="flag" class="flag us">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[2]}"<span id="flag" class="flag de">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[3]}"><span id="flag" class="flag at">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[4]}"><span id="flag" class="flag ca">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[5]}"><span id="flag" class="flag sd">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[6]}"><span id="flag" class="flag dn">' +
+          '</span></span>'
+        ]
+      },
+      yAxis: {
+        lineWidth: 0,
+        tickInterval: 25,
+        reversedStacks: false,
+        endOnTick: true,
+        showLastLabel: true,
+        gridLineWidth: 0
+      },
+      plotOptions: {
+        column: {
+          stacking: 'normal',
+          borderWidth: 0,
+          pointPadding: 0,
+          groupPadding: 0.15,
+          borderRadius: '50%'
+        }
+      },
+      series: [
+        // {
+        //   name: '營業收入',
+        //   data: [64513447.00, 35484522,1437444, 4000652, 2410081,2473105,1181516]
+        // }, 
+        // {
+        //   name: '營業支出',
+        //   data: [58988228
+        //     , 32646142, 1463964
+        //     , 3454105
+        //     , 2076232
+        //     , 2107602
+        //     , 1044439
+        //   ]
+        // }, 
+        // {
+        //   name: '營業淨利',
+        //   data: [5525219.00, 2838380.00, -26520.00, 546547.00, 333849.00, 365503.00, 137077.00]
+        // },
+        {
+          name: '營業外收入及支出', //non-opRnE
+          data: [3289140
+          , 5806379
+          , 88593
+          , 275448
+          , -15075
+          , 46635
+          ,-247
+          ]
+        },
+        {
+          name: '所得稅費用', //taxE
+          data: [3065551
+          , 1919701
+          ,170836
+          , 29881
+          , 64038
+          , 95210
+          , 22660
+          ]
+        },
+        {
+          name: '本期稅後淨利',//NetPrft_afTax
+          data: [5748808
+          , 6725058
+          , 32192
+          , 651159
+          , 254736
+          , 316928
+          , 114170
+          ]
+        },
+      
+      ]        
+    });
+  </script>
+
+
+
+</body>
+
+</html>
