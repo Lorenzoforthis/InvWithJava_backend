@@ -282,13 +282,21 @@
 
   </section>
 
+  <tbody>
+	<tr th:each="e:${Elts}">
+		<td th:text="${e.companyName}">
+			
+		</td>
+	</tr>
+  </tbody>
+  
   <figure class="highcharts-figure">
     <div class="container" id="piechart"></div>
     <p>
       <單位:千元>	  
     </p>
   </figure>
-  <h1 th:text="#{Elts.chartName}"></h1>
+/
 
   <script src="/js/accessibilty.js"></script>
   <script src="/js/piechart.js"></script>

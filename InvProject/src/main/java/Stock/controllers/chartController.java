@@ -22,13 +22,13 @@ public class chartController {
 	
 		List<Elements> LineElts = new ArrayList<Elements>();
 		
-		LineElts.add(new Elements("aaaabb"));
-//		LineElts.add(new Elements("亞洲水泥"));
-//		LineElts.add(new Elements("嘉新水泥"));
-//		LineElts.add(new Elements("環球水泥"));
-//		LineElts.add(new Elements("幸福水泥"));
-//		LineElts.add(new Elements("信大水泥"));
-//		LineElts.add(new Elements("東南水泥"));
+		LineElts.add(new Elements("臺灣水泥"));
+		LineElts.add(new Elements("亞洲水泥"));
+		LineElts.add(new Elements("嘉新水泥"));
+		LineElts.add(new Elements("環球水泥"));
+		LineElts.add(new Elements("幸福水泥"));
+		LineElts.add(new Elements("信大水泥"));
+		LineElts.add(new Elements("東南水泥"));
 	
 		model.addAttribute("Elts",LineElts);
 		
