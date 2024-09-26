@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -283,25 +283,22 @@
   </section>
 
   <tbody>
-    <tr th:each="e:${Elts}">
-      <td th:text="${e.companyName}">
-
-      </td>
-    </tr>
+	<tr th:each="e:${Elts}">
+		<td th:text="${e.companyName}">
+			
+		</td>
+	</tr>
   </tbody>
-
-  <div id="comName" th:each="e:${Elts}">
-    <div th:text="${e.companyName}"></div>
-  </div>
-
+  
+  <h1 th:text="#{Elts.companyName[0]}"></h1>
+  
   <figure class="highcharts-figure">
     <div class="container" id="piechart"></div>
-
     <p>
-      <單位:千元>
+      <單位:千元>	  
     </p>
   </figure>
-
+/
 
   <script src="/js/accessibilty.js"></script>
   <script src="/js/piechart.js"></script>
@@ -312,11 +309,7 @@
 
 
   <script>
-    var aaa = [];
-    aaa = ['abbxx', 'bbxxc', 'vvxxd', 'ddxxd', 'ddxxd', 'aaaxx', 'sxxss']
-
-
-    const chart = Highcharts.chart('piechart', {
+    Highcharts.chart('piechart', {
       colors: ['#C0C0C0', '#FFD700', '#CD7F32'],
       chart: {
         type: 'column',
@@ -353,26 +346,21 @@
         },
         lineWidth: 0,
         gridLineWidth: 0,
-        categories: [
-          aaa[0],
-          aaa[1],
-          aaa[2],
-          aaa[3],
-          aaa[4],
-          aaa[5],
-          aaa[6]
-
-
-          /**
-          
-         ' <span id="flag" class="flag no" th:text="">'+aaa[0]+'</span>',
-         ' <span id="flag" class="flag us" th:text="">'+aaa[1]+'</span>',
-         ' <span id="flag" class="flag de" th:text="">'+aaa[2]+'</span>',
-         ' <span id="flag" class="flag at" th:text="">'+aaa[3]+'</span>',
-         ' <span id="flag" class="flag ca" th:text="">'+aaa[4]+'</span>',
-         ' <span id="flag" class="flag sd" th:text="">'+aaa[5]+'</span>',
-         ' <span id="flag" class="flag dn" th:text="">'+aaa[6]+'</span>'
-         */
+        categories: [  //CompanyName
+           '<span class="f16" th:text:"${Elements.companyName[0]}"><span id="flag" class="flag no">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[1]}"><span id="flag" class="flag us">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[2]}"<span id="flag" class="flag de">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[3]}"><span id="flag" class="flag at">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[4]}"><span id="flag" class="flag ca">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[5]}"><span id="flag" class="flag sd">' +
+          '</span></span>',
+          ' <span class="f16" th:text:"${Elements.companyName[6]}"><span id="flag" class="flag dn">' +
+          '</span></span>'
         ]
       },
       yAxis: {
@@ -414,40 +402,39 @@
         {
           name: '營業外收入及支出', //non-opRnE
           data: [3289140
-            , 5806379
-            , 88593
-            , 275448
-            , -15075
-            , 46635
-            , -247
+          , 5806379
+          , 88593
+          , 275448
+          , -15075
+          , 46635
+          ,-247
           ]
         },
         {
           name: '所得稅費用', //taxE
           data: [3065551
-            , 1919701
-            , 170836
-            , 29881
-            , 64038
-            , 95210
-            , 22660
+          , 1919701
+          ,170836
+          , 29881
+          , 64038
+          , 95210
+          , 22660
           ]
         },
         {
           name: '本期稅後淨利',//NetPrft_afTax
           data: [5748808
-            , 6725058
-            , 32192
-            , 651159
-            , 254736
-            , 316928
-            , 114170
+          , 6725058
+          , 32192
+          , 651159
+          , 254736
+          , 316928
+          , 114170
           ]
         },
-
-      ]
+      
+      ]        
     });
-    console.log(chart.colors);
   </script>
 
 
