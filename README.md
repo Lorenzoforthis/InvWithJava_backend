@@ -1,6 +1,6 @@
 ### by Lorenzo aka 皋樓
 
-[![N|Lorenzo](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+[![N|Lorenzo]([[https://cldup.com/dTxpPi9lDf.thumb.png](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/selfReadme.jpg)](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/selfReadme.jpg))](https://nodesource.com/products/nsolid)
 
 
 
