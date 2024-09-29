@@ -1,9 +1,5 @@
 ### by Lorenzo aka 皋樓
 
-[![N|Lorenzo](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/selfReadme.jpg)]
-
-
-
 此專案目的如下
 
 - 自身投資資料收集分析使用，未來會不定期新增圖表與功能
@@ -19,3 +15,4 @@
 > 所以目前諸多項目還在陸續完善中，有小錯誤請多包涵  
 > 未來會朝貼近runtime 更新api資料(依資料成本取得成本而定)，盡可能縮短圖表資料時間差  
 > 此外，或以爬蟲方式取的資料，請拭目以待  
+[N|Lorenzo](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/selfReadme.jpg)]
