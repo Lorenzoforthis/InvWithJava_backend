@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win or Lose</title>
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/mycolor.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    .s11_text {
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 15px;
+      right: 10px;
+    }
+
+    #s03-1 {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      /* 16:9 的比例 */
+      overflow: hidden;
+    }
+
+    .bg-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+    }
+
+    .carousel-inner {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      /* 16:9 的比例 */
+      overflow: hidden;
+    }
+
+    #s04 {
+      background-image: url(image/section-4-3.png);
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #s05 {
+      background-image: url(image/section-5-2.png);
+      /* 默认背景图片 */
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .s07_text,
+      .s09_text {
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+        padding: 15px;
+        right: 10px;
+      }
+
+      .bg-video {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-video {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+
+      #s04 {
+        background-image: url(image/section-4-1.png);
+        /* 768px 以下的背景图片 */
+      }
+
+      #s04 .container {
+        display: none;
+      }
+
+      #s05 {
+        background-image: url(image/section-5-3.png);
+        /* 768px 以下的背景图片 */
+        background-size: cover;
+        max-width: 100%;
+
+      }
+
+      #s05 .container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!--     navbar     -->
+    <section th:replace="layouts/navbar :: navbar"></section>
+
+    <!--     content     -->
+    <!-- loginForm container 的layout:fragment="content" 會覆蓋在此 -->
+    <section layout:fragment="content"></section>
+
+    <!--     footer     -->
+    <section th:replace="layouts/footer :: footer"></section>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
