@@ -12,7 +12,7 @@ public class DataMapper implements RowMapper<DataModel> {
     public DataModel mapRow(ResultSet rs, int rowNum) throws SQLException {
 
        DataModel dataShow = new DataModel
-        (   rs.getLong("ID"),
+        (   rs.getInt("ID"),
             rs.getString("ORDERNO"), 
             rs.getString("COMNAME"),
             rs.getFloat("PRICE"),

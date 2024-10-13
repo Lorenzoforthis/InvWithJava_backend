@@ -1,7 +1,7 @@
 package Stock.models;
 
 public class DataModel {
-    Long id = 0L;
+    long id = 0;
     String orderNo = "";
     String comName = "";
     float price = 0;
@@ -12,9 +12,8 @@ public class DataModel {
         return "DataModel [id=" + id + ", orderNo=" + orderNo + ", comName=" + comName + ", price=" + price
                 + ", quantity=" + quantity + "]";
     }
-
     
-    public DataModel(Long id, String orderNo, String comName, float price, int quantity) {
+    public DataModel(long id, String orderNo, String comName, float price, int quantity) {
         super();
         this.id = id;
         this.orderNo = orderNo;
@@ -22,10 +21,11 @@ public class DataModel {
         this.price = price;
         this.quantity = quantity;
     }
-    public Long getId() {
+
+    public long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getOrderNo() {

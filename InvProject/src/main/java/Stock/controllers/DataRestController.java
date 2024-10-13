@@ -5,17 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Stock.models.DataModel;
 import Stock.services.DataBusinessService;
+import Stock.services.DataBusinessServiceInterface;
 
 @RestController
 @RequestMapping("/api/v1/dataShow")
 public class DataRestController {
 
-    DataBusinessService service;    
+    DataBusinessServiceInterface service;    
 
     @Autowired
     public DataRestController(DataBusinessService service) {
@@ -29,5 +34,32 @@ public class DataRestController {
         return dataShow; 
     }
 
+    @GetMapping("/search/{searchTerm}")
+    public List<DataModel> searchData(@PathVariable(name="searchTerm") String searchTermVar){
+        List<DataModel> dataShow = service.searchData(searchTermVar);
+
+        return dataShow;
+    }
+
+    //parameters comes from Thymeleaf form
+    @PostMapping("/")
+    public long addData(@RequestBody DataModel model) {
+        return service.addOne(model);
+    }
+
+    @GetMapping("/{id}")
+    public DataModel getById(@PathVariable(name="id")long id){
+        return service.getById(id);
+    }
+
+    @GetMapping("/delete/{id}")
+    public boolean delete(@PathVariable(name="id") long id){
+        return service.deleteOne(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public DataModel update(@RequestBody DataModel model,@PathVariable(name="id") long id){
+        return service.updateOne(id, model);
+    }
 
 }
