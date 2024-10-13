@@ -54,5 +54,11 @@ public class chartController {
 		
 		return LineElts;
 	}
-}
+
+
+	@GetMapping("/lineShow")
+	public String ShowLineChart(Model model){
+		return "line.html";
+	}
+}	
 
