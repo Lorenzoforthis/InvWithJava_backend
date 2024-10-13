@@ -1,10 +1,10 @@
-### by Lorenzo aka 皋樓
+### This is something with data analysis web-based project by far from Lorenzo 
 
 此專案目的如下
 
-- 自身投資資料收集分析使用，未來會不定期新增圖表與功能
-- 熟練JAVA + Springboot +SQL 語法及開發思維 
-- ✨ 與團隊合作開發模式試驗
+- 自身投資資料收集分析使用，未來會不定期新增圖表與功能及改版
+- 熟練JAVA + Springboot +SQL 語法及開發設計思維 
+- ✨ 初期以團隊合作開發測試github功能，10/2以後已改成自主開發
 
 運行的Javac環境版本最低要求為[JAVA-17 jdk] ，Springboot [3.3.3]
 可自行下載完成後，在terminal 執行 java -jar 檔案名稱
