@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html layout:decorate="layouts/layout.html">
 
+
 <body>
     <div class="container" th:object="${loginModel}" layout:fragment="content">
-<h1>-----0-----</h1>
- <form action="#" method="post" th:action="@{processLogin}" th:object="${loginModel}">
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input th:field="*{username}" type="text" class="form-control" id="username">
-            <p class="alert alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input th:field="*{password}" type="text" class="form-control" id="password">
-            <p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
-        </div>
+        <h1>-----0-----</h1>
+        <form action="#" method="post" th:action="@{processLogin}" th:object="${loginModel}">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input th:field="*{username}" type="text" class="form-control" id="username">
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username
+                    Error</p>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input th:field="*{password}" type="text" class="form-control" id="password">
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+                    Error</p>
+            </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form> 
-
-   
-
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        
+        <section id="videoBrain">
+            <video autoplay muted loop class="bg-video">
+              <source src="image/Vaule-1.mp4" type="video/mp4" />
+            </video>
+          </section>
     </div>
-    
+
+
+
+
 </body>
+
 </html>

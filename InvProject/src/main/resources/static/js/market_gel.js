@@ -1,5 +1,5 @@
 //股票大盤指數
-<<<<<<< HEAD
+
 $.ajax({
     type: "get",
     url: "/json/markert_general.json",
@@ -66,7 +66,7 @@ function showgolddata(data) {
 
 //更改圖表
 mychart.config.type = "bar";
-=======
+
         $.ajax({
             type: "get",
             url: "/json/markert_general.json",
@@ -120,4 +120,4 @@ mychart.config.type = "bar";
             });
 
         };
->>>>>>> 18b6bb26b2fd30be86b240a8235a54661ee62544
+

@@ -11,7 +11,7 @@ import Stock.models.DataModel;
 @Service
 public class DataBusinessService implements DataBusinessServiceInterface {
 
-    // Linked with DataAccessInterface @Repository
+    // Linked with PieAccess @Repository
     @Autowired
     DataAccessInterface dataDAO;
 
