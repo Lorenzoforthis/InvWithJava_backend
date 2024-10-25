@@ -17,7 +17,7 @@ import Stock.services.DataBusinessService;
 import Stock.services.DataBusinessServiceInterface;
 
 @RestController
-@RequestMapping("/api/v1/dataShow")
+@RequestMapping("/dataShow")
 public class DataRestController {
 
     DataBusinessServiceInterface service;    
@@ -37,14 +37,7 @@ public class DataRestController {
     @GetMapping("/search/{searchTerm}")
     public List<DataModel> searchData(@PathVariable(name="searchTerm") String searchTermVar){
         List<DataModel> dataShow = service.searchData(searchTermVar);
-
         return dataShow;
-    }
-
-    //parameters comes from Thymeleaf form
-    @PostMapping("/")
-    public long addData(@RequestBody DataModel model) {
-        return service.addOne(model);
     }
 
     @GetMapping("/{id}")
@@ -52,14 +45,22 @@ public class DataRestController {
         return service.getById(id);
     }
 
+    //parameters comes from Thymeleaf form
+    @PostMapping("/")
+    public long addData(@RequestBody DataModel model) {
+        return service.addOne(model);    }
+
+  
+    @PutMapping("/update/{id}")
+    public DataModel update(@RequestBody DataModel model,@PathVariable(name="id") long id){
+        return service.updateOne(id, model);
+    }
+
     @GetMapping("/delete/{id}")
     public boolean delete(@PathVariable(name="id") long id){
         return service.deleteOne(id);
     }
 
-    @PutMapping("/update/{id}")
-    public DataModel update(@RequestBody DataModel model,@PathVariable(name="id") long id){
-        return service.updateOne(id, model);
-    }
+  
 
 }

@@ -30,4 +30,29 @@ public class PieBusinessService implements PieBusinessServiceInterface {
     public List<PieDataModel> getData() {
         return stockDAO.getData();
     }
+
+    @Override
+    public PieDataModel getById(long id) {
+        return stockDAO.getById(id);
+    }
+
+    @Override
+    public List<PieDataModel> searchData(String searchTerm) {
+        return stockDAO.searchData(searchTerm);
+    }
+
+    @Override
+    public long addOne(PieDataModel model) {
+        return stockDAO.addOne(model);
+    }
+
+    @Override
+    public PieDataModel updateOne(long idToUpdate, PieDataModel updateData) {
+       return stockDAO.updateOne(idToUpdate,updateData);
+    }
+
+    @Override
+    public boolean deleteOne(long id) {
+       return stockDAO.deleteOne(id);
+    }
 }

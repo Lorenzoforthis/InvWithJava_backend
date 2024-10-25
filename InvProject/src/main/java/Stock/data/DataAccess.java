@@ -1,7 +1,5 @@
 package Stock.data;
 
-
-
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -33,6 +31,18 @@ public class DataAccess implements DataAccessInterface{
        return results;
     }
 
+    
+    @Override
+    public DataModel getById(long id) {
+        List<DataModel> results = jdbcTemplate.query("SELECT * FROM data_db WHERE ID =?", new DataMapper(),id);
+
+        if(!results.isEmpty()){
+            return results.get(0);
+        }else{ 
+            return null;
+        }            
+    }
+
     @Override
     public List<DataModel> searchData(String searchTerm) {
         // the following are the code for FaketestData 
@@ -49,34 +59,21 @@ public class DataAccess implements DataAccessInterface{
         //     .collect(Collectors.toList());
         //     return foundItems;
         
-        return jdbcTemplate.query("SELECT * FROM data_db WHERE COMNAME LIKE ?", new DataMapper(),"%" + searchTerm + "%");
-        
+        List<DataModel> results = jdbcTemplate.query("SELECT * FROM data_db WHERE COMNAME LIKE ?", new DataMapper(),"%" + searchTerm + "%");
+            return results;        
         } 
 
-    @Override
-    public DataModel getById(long id) {
-        List<DataModel> results = jdbcTemplate.query("SELECT * FROM data_db WHERE ID =?", new DataMapper(),id);
-
-        if(!results.isEmpty()){
-            return results.get(0);
-        }else{ 
-            return null;
-        }
-            
-    }
 
     @Override
-    public boolean deleteOne(long id) {
-      int result = jdbcTemplate.update("DELETE FROM data_db WHERE ID =?", id);
-
-      if(result > 0){
-        return true;
-      }else{
-        return false;
-      }
-    }
-
-   
+    public long addOne(DataModel newData) {
+        long result = jdbcTemplate.update("INSERT INTO data_db(ORDERNO,COMNAME,PRICE,QUANTITY) VALUES (?,?,?,?)",
+                                        newData.getOrderNo(),
+                                        newData.getComName(),
+                                        newData.getPrice(),
+                                        newData.getQuantity()                       
+                                        );
+            return result;   
+        }    
 
     @Override
     public DataModel updateOne(long idToUpdate, DataModel updateData) {
@@ -96,17 +93,15 @@ public class DataAccess implements DataAccessInterface{
         }
     }
 
-
-
     @Override
-    public long addOne(DataModel newData) {
-        long result = jdbcTemplate.update("INSERT INTO data_db(ORDERNO,COMNAME,PRICE,QUANTITY) VALUES (?,?,?,?)",
-                                        newData.getOrderNo(),
-                                        newData.getComName(),
-                                        newData.getPrice(),
-                                        newData.getQuantity()                       
-                                        );
-            return result;   
-        }
+    public boolean deleteOne(long id) {
+      int result = jdbcTemplate.update("DELETE FROM data_db WHERE ID =?", id);
+
+      if(result > 0){
+        return true;
+      }else{
+        return false;
+      }
+    }  
 
 }

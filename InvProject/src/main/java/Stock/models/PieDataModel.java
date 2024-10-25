@@ -1,6 +1,5 @@
 package Stock.models;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class PieDataModel {
@@ -10,26 +9,24 @@ public class PieDataModel {
     private String net_Income      ="";
     private float tax_Fee          =0.0f;
     private float profit_non_Sales =0.0f;
-    private LocalDateTime crt_Time = LocalDateTime.now();   
+    // private LocalDateTime crt_Time = LocalDateTime.now();   
+    private LocalDateTime crt_Time ;   
 
-    public PieDataModel(long id, String com_Name, String net_Income, float tax_Fee, float profit_non_Sales,
-            Timestamp timestamp) {
+    public PieDataModel(long id, String com_Name, String net_Income, float tax_Fee, float profit_non_Sales
+            ) {
         this.id = id;
         this.com_Name = com_Name;
         this.net_Income = net_Income;
         this.tax_Fee = tax_Fee;
         this.profit_non_Sales = profit_non_Sales;
-        this.crt_Time = timestamp.toLocalDateTime();
+        // this.crt_Time = LocalDateTime.now();   Timestamp crt_Time
     }
-
 
     @Override
     public String toString() {
         return "PieDataModel [id=" + id + ", com_Name=" + com_Name + ", net_Income=" + net_Income + ", tax_Fee="
-                + tax_Fee + ", profit_non_Sales=" + profit_non_Sales + ", crt_Time=" + crt_Time + "]";
+                + tax_Fee + ", profit_non_Sales=" + profit_non_Sales + "]";
     }
-
-
     
     public long getId() {
         return id;
@@ -61,10 +58,10 @@ public class PieDataModel {
     public void setProfit_non_Sales(float profit_non_Sales) {
         this.profit_non_Sales = profit_non_Sales;
     }
-    public LocalDateTime getCrt_Time() {
-        return crt_Time;
-    }
-    public void setCrt_Time(LocalDateTime crt_Time) {
-        this.crt_Time = crt_Time;
-    }
+    // public LocalDateTime getCrt_Time() {
+    //     return crt_Time;
+    // }
+    // public void setCrt_Time(LocalDateTime crt_Time) {
+    //     this.crt_Time = crt_Time;
+    // }
 }
