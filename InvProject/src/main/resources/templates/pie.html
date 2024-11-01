@@ -51,10 +51,10 @@
       <div class="table-wrapper">
         <div class="table-title">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-6">
               <h2>Manage <b>Companys</b></h2>
             </div>
-            <div class="col-sm-6">
+            <div class="col-6">
               <!-- <a href="#addCompanyModal" class="btn btn-success" data-toggle="modal"><i
                               class="material-icons">&#xE147;</i> <span>Add New Company</span></a> -->
               <button class="btn btn-success" data-bs-target="#addCompanyModal" data-bs-toggle="modal"><i
@@ -99,9 +99,8 @@
               <td data-th="營業外收入及支出">11</td>
               <td data-th="建檔時間">202408050205</td>
               <td>
-                <button data-bs-target="#editCompanyModal" class="edit" data-bs-toggle="modal"
-                  style="border: none; "><i class="material-icons" data-toggle="tooltip"
-                    title="Edit">&#xE254;</i></button>
+                <button data-bs-target="#editCompanyModal" class="edit" data-bs-toggle="modal" style="border: none; "><i
+                    class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
                 <button data-bs-target="#deleteCompanyModal" class="delete" data-bs-toggle="modal"
                   style="border: none;"><i class="material-icons" data-toggle="tooltip"
                     title="Delete">&#xE872;</i></button>
@@ -109,271 +108,301 @@
             </tr>
           </tbody>
         </table>
+        <div class="clearfix">
+          <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+          <ul class="pagination">
+            <li class="page-item disabled"><a href="#">Previous</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+          </ul>
+        </div>
       </div>
 
-      <!-- add Modal HTML -->
-      <div id="addCompanyModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form>
-              <div class="modal-header">
-                <h4 class="modal-title">Add Company</h4>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true"></button>
+      <div class="row mt-3">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-lg justify-content-center" id="pageList">
+            <li class="page-item disabled" onclick="drawTable(xxx)">
+              <a class="page-link">上一頁</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">下一頁</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+    <!-- add Modal HTML -->
+    <div id="addCompanyModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Add Company</h4>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" required>
               </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Address</label>
-                  <textarea class="form-control" required></textarea>
-                </div>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="text" class="form-control" required>
-                </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" required>
               </div>
-              <!-- <div class="modal-footer">
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" required>
+              </div>
+            </div>
+            <!-- <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                       <button type="button" class="btn btn-primary" id="loginModal_ok_btn">確認</button>
                   </div> -->
-              <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" class="btn btn-success" value="Add">
-              </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-success" value="Add">
+            </div>
 
-            </form>
-          </div>
+          </form>
         </div>
       </div>
+    </div>
 
-      <!-- Delete Modal HTML -->
-      <div id="deleteCompanyModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form>
-              <div class="modal-header">
-                <h4 class="modal-title">Delete Company</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-              <div class="modal-body">
-                <p>Are you sure you want to delete these Records?</p>
-                <p class="text-warning"><small>This action cannot be undone.</small></p>
-              </div>
-              <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" class="btn btn-danger" value="Delete">
-              </div>
-            </form>
-          </div>
+    <!-- Delete Modal HTML -->
+    <div id="deleteCompanyModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Company</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete these Records?</p>
+              <p class="text-warning"><small>This action cannot be undone.</small></p>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-danger" value="Delete">
+            </div>
+          </form>
         </div>
       </div>
+    </div>
 
-      <!-- Edit Modal HTML -->
-      <div id="editCompanyModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form>
-              <div class="modal-header">
-                <h4 class="modal-title">Edit Company</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <!-- Edit Modal HTML -->
+    <div id="editCompanyModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Company</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" required>
               </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Address</label>
-                  <textarea class="form-control" required></textarea>
-                </div>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="text" class="form-control" required>
-                </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" required>
               </div>
-              <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" class="btn btn-info" value="Save">
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" required></textarea>
               </div>
-            </form>
-          </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-info" value="Save">
+            </div>
+          </form>
         </div>
       </div>
+    </div>
 
 
-      <script src="/js/jquery-3.7.1.min.js"></script>
-      <script src="/js/bootstrap.bundle.min.js"></script>
-      <script src="/js/graphChart.js"></script>
-      <script src="/js/pieChartMore.js"></script>
-      <script src="/js/crud.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/graphChart.js"></script>
+    <script src="/js/pieChartMore.js"></script>
+    <script src="/js/crud.js"></script>
 
 
-      <!-- <script src="/js/export_data.js"></script> -->
-      <!-- <script src="/js/exporting.js"></script> -->
-      <!-- <script src="/js/accessibilty.js"></script> -->
+    <!-- <script src="/js/export_data.js"></script> -->
+    <!-- <script src="/js/exporting.js"></script> -->
+    <!-- <script src="/js/accessibilty.js"></script> -->
 
-      <script>
-        var com_NameElts = [];
-        var net_IncomeElts = [];
-        var tax_FeeElts = [];
-        var profit_non_SalesElts = [];
+    <script>
+      var com_NameElts = [];
+      var net_IncomeElts = [];
+      var tax_FeeElts = [];
+      var profit_non_SalesElts = [];
 
-        $.ajax({
-          type: "GET",
-          url: "http://localhost:8080/charts/",
-          dataType: "json",
-          async: false,
-          success: resultShow,
-          error: function () {
-            alert("pie.html got some errors");
-          }
-        });
-
-
-        function resultShow(result) {
-          console.log(result);
-
-          $("#pieTable").empty();
-
-          result.forEach(function (item) {
-
-            // var strHTML = '<tr><td data-th="ID">' + item.id + '</td><td data-th="公司名稱">' + item.com_Name + '</td><td data-th="本期稅後淨利">' + item.net_Income + '</td><td data-th="所得稅費用">' + item.tax_Fee + '</td><td data-th="營業外收入及支出">' + item.profit_non_Sales + '</td><td data-th="建檔時間">' + item.crt_Time + '</td></tr>';
-            var strHTML = '<tr><td><span class="custom-checkbox"><input type="checkbox" id="checkbox1" name="options[]" value="1"><label for="checkbox1"></label></span></td><td data-th="ID">' + item.id + '</td><td data-th="公司名稱">' + item.com_Name + '</td><td data-th="本期稅後淨利">' + item.net_Income + '</td><td data-th="所得稅費用">' + item.tax_Fee + '</td><td data-th="營業外收入及支出">' + item.profit_non_Sales + '</td><td data-th="建檔時間">' + item.crt_Time + '</td><td><button data-bs-target="#editCompanyModal" class="edit" data-bs-toggle="modal" style="border: none; "><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button><button data-bs-target="#deleteCompanyModal" class="delete" data-bs-toggle="modal"  style="border: none;"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button></td></tr>';
-
-            $("#pieTable").append(strHTML);
-
-            com_NameElts.push(item.com_Name);
-            net_IncomeElts.push(item.net_Income);
-            tax_FeeElts.push(item.tax_Fee);
-            profit_non_SalesElts.push(item.profit_non_Sales);
-          });
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/charts/",
+        dataType: "json",
+        async: false,
+        success: resultShow,
+        error: function () {
+          alert("pie.html got some errors");
         }
-
-        console.log(com_NameElts);
-        console.log(net_IncomeElts);
-        console.log(tax_FeeElts);
-        console.log(profit_non_SalesElts);
+      });
 
 
+      function resultShow(result) {
+        console.log(result);
 
-        const chart = Highcharts.chart('piechart', {
-          colors: ['#C0C0C0', '#FFD700', '#CD7F32'],
-          chart: {
-            type: 'column',
-            inverted: true,
-            polar: true
-          },
-          title: {
-            text: '上市公司本期營業利益',
-            align: 'left'
-          },
-          subtitle: {
-            text: '水泥工業(新增下拉選單)',
-            align: 'left'
-          },
-          tooltip: {
-            outside: true
-          },
-          pane: {
-            size: '85%',
-            innerSize: '20%',
-            endAngle: 270
-          },
-          xAxis: {
-            tickInterval: 1,
-            labels: {
-              align: 'right',
-              useHTML: true,
-              allowOverlap: true,
-              step: 1,
-              y: 3,
-              style: {
-                fontSize: '13px'
-              }
-            },
-            lineWidth: 0,
-            gridLineWidth: 0,
-            categories: [
-              com_NameElts[0],
-              com_NameElts[1],
-              com_NameElts[2],
-              com_NameElts[3],
-              com_NameElts[4],
-              com_NameElts[5],
-              com_NameElts[6]
-            ]
-          },
-          yAxis: {
-            lineWidth: 0,
-            tickInterval: 25,
-            reversedStacks: false,
-            endOnTick: true,
-            showLastLabel: true,
-            gridLineWidth: 0
-          },
-          plotOptions: {
-            column: {
-              stacking: 'normal',
-              borderWidth: 0,
-              pointPadding: 0,
-              groupPadding: 0.15,
-              borderRadius: '50%'
+        $("#pieTable").empty();
+
+        result.forEach(function (item) {
+
+          // var strHTML = '<tr><td data-th="ID">' + item.id + '</td><td data-th="公司名稱">' + item.com_Name + '</td><td data-th="本期稅後淨利">' + item.net_Income + '</td><td data-th="所得稅費用">' + item.tax_Fee + '</td><td data-th="營業外收入及支出">' + item.profit_non_Sales + '</td><td data-th="建檔時間">' + item.crt_Time + '</td></tr>';
+          var strHTML = '<tr><td><span class="custom-checkbox"><input type="checkbox" id="checkbox1" name="options[]" value="1"><label for="checkbox1"></label></span></td><td data-th="ID">' + item.id + '</td><td data-th="公司名稱">' + item.com_Name + '</td><td data-th="本期稅後淨利">' + item.net_Income + '</td><td data-th="所得稅費用">' + item.tax_Fee + '</td><td data-th="營業外收入及支出">' + item.profit_non_Sales + '</td><td data-th="建檔時間">' + item.crt_Time + '</td><td><button data-bs-target="#editCompanyModal" class="edit" data-bs-toggle="modal" style="border: none; "><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button><button data-bs-target="#deleteCompanyModal" class="delete" data-bs-toggle="modal"  style="border: none;"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button></td></tr>';
+
+          $("#pieTable").append(strHTML);
+
+          com_NameElts.push(item.com_Name);
+          net_IncomeElts.push(item.net_Income);
+          tax_FeeElts.push(item.tax_Fee);
+          profit_non_SalesElts.push(item.profit_non_Sales);
+        });
+      }
+
+      console.log(com_NameElts);
+      console.log(net_IncomeElts);
+      console.log(tax_FeeElts);
+      console.log(profit_non_SalesElts);
+
+
+
+      const chart = Highcharts.chart('piechart', {
+        colors: ['#C0C0C0', '#FFD700', '#CD7F32'],
+        chart: {
+          type: 'column',
+          inverted: true,
+          polar: true
+        },
+        title: {
+          text: '上市公司本期營業利益',
+          align: 'left'
+        },
+        subtitle: {
+          text: '水泥工業(新增下拉選單)',
+          align: 'left'
+        },
+        tooltip: {
+          outside: true
+        },
+        pane: {
+          size: '85%',
+          innerSize: '20%',
+          endAngle: 270
+        },
+        xAxis: {
+          tickInterval: 1,
+          labels: {
+            align: 'right',
+            useHTML: true,
+            allowOverlap: true,
+            step: 1,
+            y: 3,
+            style: {
+              fontSize: '13px'
             }
           },
-          series: [
-            {
-              name: '營業外收入及支出', //non-opRnE
-
-              data: [
-                profit_non_SalesElts[0],
-                profit_non_SalesElts[1],
-                profit_non_SalesElts[2],
-                profit_non_SalesElts[3],
-                profit_non_SalesElts[4],
-                profit_non_SalesElts[5],
-                profit_non_SalesElts[6],
-              ]
-            },
-
-            {
-              name: '所得稅費用', //taxE
-              data: [
-                tax_FeeElts[0],
-                tax_FeeElts[1],
-                tax_FeeElts[2],
-                tax_FeeElts[3],
-                tax_FeeElts[4],
-                tax_FeeElts[5],
-                tax_FeeElts[6],
-              ]
-            },
-
-            {
-              name: '本期稅後淨利',//NetPrft_afTax
-              data: [
-                profit_non_SalesElts[0],
-                profit_non_SalesElts[1],
-                profit_non_SalesElts[2],
-                profit_non_SalesElts[3],
-                profit_non_SalesElts[4],
-                profit_non_SalesElts[5],
-                profit_non_SalesElts[6],
-              ]
-            },
+          lineWidth: 0,
+          gridLineWidth: 0,
+          categories: [
+            com_NameElts[0],
+            com_NameElts[1],
+            com_NameElts[2],
+            com_NameElts[3],
+            com_NameElts[4],
+            com_NameElts[5],
+            com_NameElts[6]
           ]
-        });
+        },
+        yAxis: {
+          lineWidth: 0,
+          tickInterval: 25,
+          reversedStacks: false,
+          endOnTick: true,
+          showLastLabel: true,
+          gridLineWidth: 0
+        },
+        plotOptions: {
+          column: {
+            stacking: 'normal',
+            borderWidth: 0,
+            pointPadding: 0,
+            groupPadding: 0.15,
+            borderRadius: '50%'
+          }
+        },
+        series: [
+          {
+            name: '營業外收入及支出', //non-opRnE
 
-      </script>
+            data: [
+              profit_non_SalesElts[0],
+              profit_non_SalesElts[1],
+              profit_non_SalesElts[2],
+              profit_non_SalesElts[3],
+              profit_non_SalesElts[4],
+              profit_non_SalesElts[5],
+              profit_non_SalesElts[6],
+            ]
+          },
+
+          {
+            name: '所得稅費用', //taxE
+            data: [
+              tax_FeeElts[0],
+              tax_FeeElts[1],
+              tax_FeeElts[2],
+              tax_FeeElts[3],
+              tax_FeeElts[4],
+              tax_FeeElts[5],
+              tax_FeeElts[6],
+            ]
+          },
+
+          {
+            name: '本期稅後淨利',//NetPrft_afTax
+            data: [
+              profit_non_SalesElts[0],
+              profit_non_SalesElts[1],
+              profit_non_SalesElts[2],
+              profit_non_SalesElts[3],
+              profit_non_SalesElts[4],
+              profit_non_SalesElts[5],
+              profit_non_SalesElts[6],
+            ]
+          },
+        ]
+      });
+
+    </script>
 </body>
 
 </html>

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html layout:decorate="layouts/layout.html">
+<head>
+  
+<style>
+  .bg-video {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+</head>
 
-<body>
-  <div class="container positioned-section" layout:fragment="content">
-    <h1>8080</h1>
-
+<body layout:fragment="content">
+  <div class="container positioned-section" >
     <!--**********Video 1**********-->
     <section id="videoBrain">
       <video autoplay muted loop class="bg-video">
-        <source src="image/Vaule-1.mp4" type="video/mp4" />
+        <source src="/image/Vaule-1.mp4" type="video/mp4" />
       </video>
     </section>
 
     <!--**********Video 2**********-->
-    <section id="videoTriple">
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <!-- <section id="videoTriple">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -24,20 +31,20 @@
             aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active bg-video">
             <video autoplay muted loop class="carousel-video" style="width: 100%;">
-              <source src="image/v-1.mp4" type="video/mp4" />
+              <source src="/image/v-1.mp4" type="video/mp4" />
             </video>
             <div class="carousel-caption p-3 rounded-2 shadow-lg d-none d-md-block">
               <h5>Win or Lose</h5>
               <p>
-                投資智慧，創造未來，財富增值，從每一步開始，長期眼光，穩健增長。
+                穩健增長智慧投資，財富增值從每一步著重長期眼光開始，創造未來
               </p>
             </div>
           </div>
           <div class="carousel-item">
             <video autoplay muted loop class="carousel-video" style="width: 100%; height: 100%; object-fit: cover;">
-              <source src="image/v-2.mp4" type="video/mp4" />
+              <source src="/image/v-2.mp4" type="video/mp4" />
             </video>
             <div class="carousel-caption p-3 rounded-2 shadow-lg d-none d-md-block"
               style="background-color: rgba(0, 0, 0, 0.3)">
@@ -73,7 +80,12 @@
         </button>
       </div>
     </section>
-  </div>  
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script> -->
+  </div>
+  
+  
+
+
 </body>
 
 </html>
