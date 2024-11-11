@@ -13,18 +13,8 @@ public class PieController {
     @GetMapping("/pie")
     public String displayPieChart(Model model){        
 
-        return "pie.html";
+        return "pieNbar.html";
     }
 
-    @GetMapping("/piecopy")
-    public String displayPiecopyChart(Model model){        
-
-        return "piecopy.html";
-    }
-
-    @GetMapping("/line")
-    public String displayLineChart(Model model){        
-
-        return "line.html";
-    }
+ 
 }
