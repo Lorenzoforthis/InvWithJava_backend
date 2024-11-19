@@ -16,5 +16,12 @@ public class PieController {
         return "pieNbar.html";
     }
 
+    @GetMapping("/line")
+    public String displayLineChart(Model model){        
+
+        return "line.html";
+    }
+  
+
  
 }
