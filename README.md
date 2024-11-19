@@ -1,9 +1,9 @@
 ### Data analysis web-based project with Lorenzo 
 
 專案目的:
-- 數據視覺化Dashboard開發 ，以Chart.js + JAVA + Springboot + MySQL 搭建
-- Dashboard與MES、ERP相關，未來想轉換工作崗位從事相關軟體工作
-- Dashboard亦用自用投資金融數據分析使用，未來不定期新增圖表與功能
+- 數據視覺化DashBoard開發 ，以Chart.js + JAVA + Springboot + MySQL 搭建
+- DashBoard與MES、ERP相關，未來想轉換工作崗位從事相關軟體工作
+- 圖表亦用自用投資金融數據分析使用，未來不定期新增圖表與功能
 
 運行環境:
 - 最低要求為[JAVA-17] ，Springboot [3.3.3]
@@ -16,4 +16,7 @@
 
 
 > 對於黃金、美股、台股投資有興趣的，歡迎來信交流  lorenzoforthis@gmail.com
+(首頁封面)
+![N|Lorenzo](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/index.png)
+(DashBoard)
 ![N|Lorenzo](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/selfReadme.png)
