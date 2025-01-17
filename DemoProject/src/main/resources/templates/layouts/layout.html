@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win or Lose</title>
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/text_selection.css" />
+
+
+
+</head>
+
+<body>
+  <!--     navbar     -->
+  <header th:replace="layouts/navbar :: navbar"></header>
+
+  <!--     content     -->
+  <!-- loginForm container 的layout:fragment="content" 會覆蓋在此 -->
+  <section layout:fragment="content"></section>
+
+</body>
+
+</html>
