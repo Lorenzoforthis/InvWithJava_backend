@@ -20,6 +20,7 @@
 (DashBoard)
 ![N|Lorenzo](https://github.com/Lorenzoforthis/InvWithJava_backend/blob/main/InvProject/src/main/resources/static/image/selfReadme.png)
 
-未來新增項目:
-- 打算把前端Thymeleaf模板引擎改成前端框架 Vue 或Angular
-- 未來會朝貼近runtime 更新api資料(依資料成本取得成本而定)，或以爬蟲方式取的資料
+近期新增項目:
+- 之後新資料用MongoDB 存入, 資料量累積一定量後再正規化導入SQL
+  
+
